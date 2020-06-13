@@ -16,20 +16,10 @@ const initialValue = {
 
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, handleSubmit, handleChanges] = useForm(
-    'checkOutForm',
+  const [values, handleSubmit, handleChanges, clearForm] = useForm(
+    'CheckOutForm',
     initialValue
   )
-  // const handleChanges = (e) => {
-  //   setValues({ ...values, [e.target.name]: e.target.value });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setShowSuccessMessage(true);
-  // };
-
-
 
   return (
     <>
@@ -91,8 +81,20 @@ const CheckoutForm = (props) => {
           </p>
         </div>
       )}
+      <button onClick={clearForm}>Clear Form</button>
     </>
   );
 };
 
 export default CheckoutForm;
+
+
+
+ // const handleChanges = (e) => {
+  //   setValues({ ...values, [e.target.name]: e.target.value });
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setShowSuccessMessage(true);
+  // };

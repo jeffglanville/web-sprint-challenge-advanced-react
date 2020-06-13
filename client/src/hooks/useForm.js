@@ -20,7 +20,12 @@ const useForm = (key, initialValues) => {
         setShowSuccessMessage(true);
     };
 
-    return [values, handleSubmit, handleChanges];
+    const clearForm = e => {
+        e.preventDefault();
+        setValues(initialValues)
+    }
+
+    return [values, handleSubmit, handleChanges, clearForm];
 }
 
 export default useForm;
