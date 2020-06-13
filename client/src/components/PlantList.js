@@ -1,12 +1,29 @@
-import React, { Component } from "react";
-import axios from "axios";
-
-export default class PlantList extends Component {
   // add state with a property called "plants" - initialize as an empty array
 
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
+
+
+import React from "react";
+import axios from "axios";
+
+class PlantList extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      plants: []
+    }
+  }
+
+  componentDidMount() {
+    return (
+      axios
+        .get("http://localhost:3333/plants")
+        .then(res => this.setState({ plants: this.state.plants })|| console.log(res.data))
+        .catch(err => console.log("Err is:". err))
+    )
+  }
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
@@ -37,3 +54,5 @@ export default class PlantList extends Component {
     );
   }
 }
+
+export default PlantList;
