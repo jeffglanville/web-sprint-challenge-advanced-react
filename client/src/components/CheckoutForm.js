@@ -14,11 +14,11 @@ const initialValue = {
   zip: "",
 };
 
-const CheckoutForm = (props) => {
+const CheckoutForm = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [values, handleSubmit, handleChanges, clearForm] = useForm(
     'CheckOutForm',
-    initialValue
+    initialValue,
   )
 
   return (
