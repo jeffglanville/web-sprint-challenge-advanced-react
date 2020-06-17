@@ -5,7 +5,8 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const useForm = (key, initialValues) => {
     const [ values, setValues ] = useLocalStorage(key, initialValues);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [showSuccessMessage, setShowSuccessMessage] = useState("Success", false);
+
 
     const handleChanges = e => {
         setValues({
@@ -16,15 +17,16 @@ const useForm = (key, initialValues) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if ( !values === true ) {
-            setShowSuccessMessage(false)
-        }else {
-          return showSuccessMessage;
+        setShowSuccessMessage(true);
+        // if ( !values === true ) {
+        //     setShowSuccessMessage(false)
+        // }else {
+        //   return showSuccessMessage;
 
-        }
+        // }
     };
 
-    return [values, handleSubmit, handleChanges];
+    return [values,  showSuccessMessage, handleSubmit, handleChanges];
 }
 
 export default useForm;
