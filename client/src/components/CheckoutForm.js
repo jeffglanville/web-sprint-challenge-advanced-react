@@ -15,8 +15,8 @@ const initialValue = {
 };
 
 const CheckoutForm = () => {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, handleSubmit, handleChanges, clearForm] = useForm(
+  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [values, handleSubmit, handleChanges] = useForm(
     'CheckOutForm',
     initialValue,
   )
@@ -64,7 +64,7 @@ const CheckoutForm = () => {
         <button>Checkout</button>
       </form>
 
-      {showSuccessMessage && (
+      {/* {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
@@ -80,8 +80,7 @@ const CheckoutForm = () => {
             {values.city}, {values.state} {values.zip}
           </p>
         </div>
-      )}
-      <button onClick={clearForm}>Clear Form</button>
+      )} */}
     </>
   );
 };
