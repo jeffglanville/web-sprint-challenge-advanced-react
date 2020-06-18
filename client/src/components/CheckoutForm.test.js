@@ -1,5 +1,5 @@
 import React from "react";
-import { render, getByText } from "@testing-library/react";
+import { render, getByText, fireEvent, getByTestId } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
@@ -13,8 +13,14 @@ getByText("Checkout Form")
 
 
 test("form shows success message on submit with form details", () => {
+const { getByTestId } = render(<CheckoutForm />)
 
-const submit = { button: 0 }
-fireEvent.click(getByTestId("submitButton", submit))
-const {getByTestId} = render("successMessage")
+const checkout = getByTestId("submitButton")
+
+fireEvent( checkout, new MouseEvent("click"))
+
+const { getByText } = render("successMessage")
+
+getByText("successMessage")
+
 });
